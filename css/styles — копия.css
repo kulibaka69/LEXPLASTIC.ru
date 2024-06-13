@@ -1,0 +1,47 @@
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+.footer {
+    background-color: #f1f1f1; /* You can set your desired footer background color */
+    padding: 10px 0; /* Adjust the padding as needed */
+    text-align: center; /* Center-align the footer text */
+    flex-shrink: 0;
+}
+
+.footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px; /* Adjust the padding as needed */
+}
+
+.footer-items {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.contacts, .information {
+    display: flex;
+    flex-direction: column;
+}
+
+.copyright {
+    text-align: center;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.products-page {
+    display: flex;
+
+}
