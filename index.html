@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="fonts/stylesheet.css" rel="stylesheet" type="text/css" />
+    <link rel="icon" href="media/logowhite.png">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Главная</title>
+    <div class='navbar'>
+        <div class='container'>
+            <div class="navbar-items">
+                <div class='links-items'>
+                    <a class='main-page' href="index.html">Главная</a>
+                    <a class='about-page' href="about.html">О нас</a>
+                    <a class='catalog-page' href="products.html">Каталог</a>
+                </div>
+                <a class='garbage-page' href="garbage.html">Корзина</a>
+            </div>
+        </div>
+    </div>
+</head>
+<body>
+    <div class="main">
+        <div class="container">
+            <div class="slider">
+                <div class="slides">
+                    <div class="slide">
+                        <img src="media/upakovka.jpg" alt="Image 1">
+                        <div class="caption">
+                            <h2>Пластиковая упаковка</h2>
+                            <p>Экологически чистая пластиковая упаковка, произведенная из переработанных материалов. Отличное решение для сохранения продуктов и товаров.</p>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <img src="media/kroshka.jpg" alt="Image 2">
+                        <div class="caption">
+                            <h2>Пластиковая крошка</h2>
+                            <p>Пластиковая крошка — универсальный материал для производства новых пластиковых изделий. Изготовлена из переработанных пластиковых отходов.</p>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <img src="media/trubi.jpeg" alt="Image 3">
+                        <div class="caption">
+                            <h2>Пластиковые трубы</h2>
+                            <p>Прочные и долговечные пластиковые трубы из переработанного пластика. Подходят для использования в различных строительных и инженерных проектах.</p>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <img src="media/listki.jpg" alt="Image 2">
+                        <div class="caption">
+                            <h2>Пластиковые листы</h2>
+                            <p>Высококачественные пластиковые листы, произведенные из переработанного материала, идеально подходят для использования в строительстве и изготовлении рекламных конструкций.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="navigation">
+                    <button class="prev">&#10094;</button>
+                    <button class="next">&#10095;</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="container">
+            <div class="footer-items">
+                <div class="contacts">
+                    <p>Контакты для связи:</p>
+                    <a>+7(926)-790-80-01<br>info@lexplastic.com</a>
+                </div>
+                <div class="information">
+                    <p>Мы располагаемся по адресу:</p>
+                    <a>115432, город Москва, ул. Трофимова, д. 2/1, офис 4</a>
+                </div>
+            </div>
+            <div class="copyright">
+                Работаем с 1998 года по нынешний день. Успех? - Да!
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const slides = document.querySelectorAll('.slide');
+        let currentSlide = 0;
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.style.display = i === index ? 'block' : 'none';
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        document.querySelector('.next').addEventListener('click', nextSlide);
+        document.querySelector('.prev').addEventListener('click', prevSlide);
+
+        showSlide(currentSlide);
+    </script>
+</body>
+</html>

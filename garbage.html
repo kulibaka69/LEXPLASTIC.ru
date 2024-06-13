@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="media/logowhite.png">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Корзина</title>
+</head>
+<body>
+    <div class='navbar'>
+        <div class='container'>
+            <div class="navbar-items">
+                <div class='links-items'>
+                    <a class='main-page' href="index.html">Главная</a>
+                    <a class='about-page' href="about.html">О нас</a>
+                    <a class='catalog-page' href="products.html">Каталог</a>
+                </div>
+                <a class='garbage-page' href="garbage.html">Корзина</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="cart">
+            <h1>Корзина</h1>
+            <div class="cart-items"></div>
+            <div class="cart-total">
+                <p>Итого: <span class="total-price">0 руб</span></p>
+                <button class="checkout-button" onclick="openModal()">Оформить заказ</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="container">
+            <div class="footer-items">
+                <div class="contacts">
+                    <p>Контакты для связи:</p>
+                    <a>+7(926)-790-80-01<br>info@lexplastic.com</a>
+                </div>
+                <div class="information">
+                    <p>Мы располагаемся по адресу:</p>
+                    <a>115432, город Москва, ул. Трофимова, д. 2/1, офис 4</a>
+                </div>
+            </div>
+            <div class="copyright">
+                Работаем с 1998 года по нынешний день. Успех? - Да!
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="orderModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Оформление заказа</h2>
+            <form>
+                <label for="name">ФИО:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="phone">Телефон:</label>
+                <input type="tel" id="phone" name="phone" required>
+                <label for="email">Электронная почта:</label>
+                <input type="email" id="email" name="email" required>
+                <button type="submit">Подтвердить заказ</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Модальное окно Спасибо за заказ -->
+    <div id="thankYouModal" class="modal">
+        <div class="modal-content">
+            <h2>Спасибо за заказ!</h2>
+            <button onclick="redirectToMain()">Продолжить</button>
+        </div>
+    </div>
+
+
+    
+
+    <script src="js/modal.js"></script>
+    <script src="js/cart.js"></script>
+</body>
+</html>

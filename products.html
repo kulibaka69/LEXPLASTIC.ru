@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href ="fonts/stylesheet.css" rel = "stylesheet" type = "text/css" />
+    <link rel="icon" href="media/logowhite.png">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Каталог</title>
+    <div class = 'navbar'>
+        <div class = container>
+            <div class="navbar-items">
+                <div class = 'links-items'>
+                    <a class = 'main-page' href="index.html">Главная</a>
+                    <a class = 'about-page' href="about.html">О нас</a>
+                    <a class = 'catalog-page' href="products.html">Каталог</a>
+                </div>
+                <a class = 'garbage-page' href="garbage.html">Корзина</a>
+            </div>
+        </div>
+    </div>
+</head>
+<body>
+    <div class="container">
+        <div class="products-page">
+            <div class="text">
+                <h1>Каталог Переработанного Пластика</h1>
+                <p>Добро пожаловать в наш каталог переработанных пластиковых материалов. Мы предлагаем широкий ассортимент продукции, произведенной с использованием передовых технологий переработки пластика. Наши материалы отличаются высоким качеством и соответствуют всем стандартам безопасности и экологическим нормам.</p>
+
+                <div class="catalog-grid">
+                    <div class="catalog-item">
+                        <img class="photos" src="media/1.jpg">
+                        <h3>Пластиковые гранулы</h3>
+                        <p>Наши пластиковые гранулы изготавливаются из переработанного пластика и могут быть использованы в производстве упаковки, строительных материалов и автомобильных компонентов.</p>
+                        <p class="price">1000 ₽/кг</p>
+                        <button class="add-to-cart-button">Добавить в корзину</button>
+                    </div>
+
+                    <div class="catalog-item">
+                        <img class="photos" src="media/2.jpg" alt="Пластиковые листы">
+                        <h3>Пластиковые листы</h3>
+                        <p>Высококачественные пластиковые листы, произведенные из переработанного материала, идеально подходят для использования в строительстве и изготовлении рекламных конструкций.</p>
+                        <p class="price">1500 ₽/лист</p>
+                        <button class="add-to-cart-button">Добавить в корзину</button>
+                    </div>
+
+                    <div class="catalog-item">
+                        <img class="photos" src="media/3.jpg" alt="Пластиковая крошка">
+                        <h3>Пластиковая крошка</h3>
+                        <p>Пластиковая крошка — универсальный материал для производства новых пластиковых изделий. Изготовлена из переработанных пластиковых отходов.</p>
+                        <p class="price">800 ₽/кг</p>
+                        <button class="add-to-cart-button">Добавить в корзину</button>
+                    </div>
+
+                    <div class="catalog-item">
+                        <img class="photos" src="media/4.jpg" alt="Пластиковые трубы">
+                        <h3>Пластиковые трубы</h3>
+                        <p>Прочные и долговечные пластиковые трубы из переработанного пластика. Подходят для использования в различных строительных и инженерных проектах.</p>
+                        <p class="price">1200 ₽/м</p>
+                        <button class="add-to-cart-button">Добавить в корзину</button>
+                    </div>
+
+                    <div class="catalog-item">
+                        <img class="photos" src="media/5.jpg" alt="Пластиковая упаковка">
+                        <h3>Пластиковая упаковка</h3>
+                        <p>Экологически чистая пластиковая упаковка, произведенная из переработанных материалов. Отличное решение для сохранения продуктов и товаров.</p>
+                        <p class="price">500 ₽/шт</p>
+                        <button class="add-to-cart-button">Добавить в корзину</button>
+                    </div>
+                </div>
+            </div>
+        </div>    
+            <p>Если у вас есть вопросы по поводу нашей продукции или вы хотите сделать заказ, пожалуйста, свяжитесь с нами по контактным данным, указанным на сайте.</p>
+    </div>
+    <div class="footer">
+        <div class="container">
+            <div class="footer-items">
+                <div class="contacts">
+                    <p>Контакты для связи:</p>
+                    <a>+7(926)-790-80-01<br>info@lexplastic.com</a>
+                </div>
+                <div class="information">
+                    <p>Мы располагаемся по адресу:</p>
+                    <a>115432, город Москва, ул. Трофимова, д. 2/1, офис 4</a>
+                </div>
+            </div>
+            <div class="copyright">
+                Работаем с 1998 года по нынешний день. Успех? - Да!
+            </div>
+        </div>
+    </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const addToCartButtons = document.querySelectorAll(".add-to-cart-button");
+    
+        addToCartButtons.forEach(button => {
+            button.addEventListener("click", () => {
+                const catalogItem = button.closest(".catalog-item");
+                const title = catalogItem.querySelector("h3").textContent;
+                const price = parseFloat(catalogItem.querySelector(".price").textContent.replace(" руб", ""));
+                const image = catalogItem.querySelector("img").src;
+    
+                const cartItem = {
+                    id: Date.now(), // уникальный идентификатор
+                    title,
+                    price,
+                    image,
+                    quantity: 1
+                };
+    
+                addToCart(cartItem);
+            });
+        });
+    
+        function addToCart(cartItem) {
+            let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+    
+            const existingItemIndex = cartItems.findIndex(item => item.title === cartItem.title);
+    
+            if (existingItemIndex > -1) {
+                cartItems[existingItemIndex].quantity += 1;
+            } else {
+                cartItems.push(cartItem);
+            }
+    
+            localStorage.setItem("cartItems", JSON.stringify(cartItems));
+            alert("Товар добавлен в корзину");
+        }
+    });
+    </script>
+    
+
